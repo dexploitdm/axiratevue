@@ -12,7 +12,9 @@
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
     "vue": "^2.6.10",
+    "vue-jquery-mask": "^1.0.3",
     "vue-router": "^3.0.3",
+    "vue-the-mask": "^0.11.1",
     "vuelidate": "^0.7.4",
     "vuex": "^3.1.1"
   },

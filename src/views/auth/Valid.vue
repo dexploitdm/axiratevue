@@ -34,11 +34,13 @@
                                     'is-error': submitted && $v.login.lPhone.$error ,
                                     'is-empty': !this.login.lPhone
                                     }">
-                                <input
+                                <vue-mask
                                   type="tel"
                                   v-model="login.lPhone"
                                   id="lPhone"
-                                  name="lPhone" class="o-pltz-text-input js-text-input"  />
+                                  placeholder="+7 (___) ___ __ __"
+                                  mask="+7 (999) 999 99 99" 
+                                  name="lPhone" class="o-pltz-text-input js-text-input js-input-phone" ></vue-mask>
                                 <label class="control-label" for="lPhone">Мобильный телефон</label>
                                 <div v-if="submitted && !$v.login.lPhone.required" class="c-form-group__message">Заполните полностью</div>
                             </div>
@@ -92,6 +94,13 @@
 
                     </div>
                 </div>
+ <vue-mask 
+        class="form-control" 
+        mask="+7(999)9999999" 
+        placeholder="_"
+        :raw="false"
+        :options="options"> 
+    </vue-mask>
 
             </div>
 
@@ -102,13 +111,15 @@
 </template>
 <script>
   import SideBar from '@/components/auth/SideBar'
+  import {TheMask} from 'vue-the-mask'
+  import vueMask from 'vue-jquery-mask';
   import {
     required,
     minLength
 } from "vuelidate/lib/validators";
   export default {
     components: {
-      SideBar
+      SideBar, TheMask, vueMask
     },
     data() {
         return {
@@ -151,7 +162,7 @@
     },
     mounted() {
     //   let recaptchaScript = document.createElement('script')
-    //   recaptchaScript.setAttribute('src', 'https://dexploitdm.ru/projects/backup/build.js')
+    //   recaptchaScript.setAttribute('src', 'js/builds.js')
     //   document.head.appendChild(recaptchaScript)
     },
     created: function() {
