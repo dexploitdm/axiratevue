@@ -19,7 +19,7 @@
             <div class="c-card c-card_t1">
                 <div class="c-card__part">
 
-                    <form action="#" class="c-form" id="regone">
+                    <form action="#" class="c-form" id="regone" @submit.prevent="checkForm" autocomplete="on">
 
                         <fieldset class="c-form-fieldset js-fieldset">
                             <h1 class="c-form-legend c-form-legend_progress">Контактные данные</h1>
@@ -144,10 +144,12 @@ import $ from 'jquery';
     methods: {
 
         checkForm: function (e) {
-
+                    
+            console.log('отправка')
             if ($('#rSurname').val() && $('#rName').val() && $('#rPatronymic').val() && $('#rPhone').val() && $('#rEmail').val()) {
 
                if(!$(".c-form-group").hasClass("is-error")){
+            
                   /*
                   * TODO: Отправка данных
                   */
@@ -155,10 +157,11 @@ import $ from 'jquery';
                  // console.log('Отправка первого шага')
                   //console.log('Фам. ' + $('#rSurname').val() + ' Имя ' +  $('#rName').val() + ' Отч. ' + $('#rPatronymic').val() + ' Пол: ' + this.gender + ' Номер ' + $('#rPhone').val() + ' Email ' + $('#rEmail').val())
                   this.$store.dispatch('auth/registerState/stepOne')
-                  this.$router.push('/registration/passport-data')
+                  this.$router.push('/register/passport-data')
                }
 
             }
+
 
             this.errors = [];
 
@@ -211,7 +214,7 @@ import $ from 'jquery';
 
 
       let buildScript = document.createElement('script')
-      buildScript.setAttribute('src', 'https://dexploitdm.ru/projects/backup/build.js')
+      buildScript.setAttribute('src', 'js/builds.js')
       document.head.appendChild(buildScript)
 
     }
