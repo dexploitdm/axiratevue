@@ -156,7 +156,8 @@ import $ from 'jquery';
                   //return true;
                  // console.log('Отправка первого шага')
                   //console.log('Фам. ' + $('#rSurname').val() + ' Имя ' +  $('#rName').val() + ' Отч. ' + $('#rPatronymic').val() + ' Пол: ' + this.gender + ' Номер ' + $('#rPhone').val() + ' Email ' + $('#rEmail').val())
-                  this.$store.dispatch('auth/registerState/stepOne')
+                 
+                  this.$store.dispatch('register/stepOne')
                   this.$router.push('/register/passport-data')
                }
 
