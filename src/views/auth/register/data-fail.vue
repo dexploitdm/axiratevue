@@ -65,7 +65,11 @@
                             </fieldset>
                             <div class="pltz-flex pltz-flex_p12 c-form__footer">
                                 <div class="pltz-flex__col pltz-flex__col_small12 c-form__footer-part">
-                                    <button type="submit" class="o-pltz-btn o-pltz-btn_wrap o-pltz-btn_i">Опечаток нет</button>
+                                    <AppButton
+                                        title = "Опечаток нет"
+                                        cls = "o-pltz-btn o-pltz-btn_wrap o-pltz-btn_i"
+                                        type = "submit"
+                                    />
                                 </div>
                             </div>
                         </form>
@@ -80,6 +84,7 @@
 
 <script>
 import SideBar from '@/components/auth/SideBar'
+import AppButton from '@/components/form/Button'
 export default {
     data () {
       return {
@@ -96,7 +101,7 @@ export default {
         title: 'Вход',
     },
     components: {
-      SideBar
+      SideBar, AppButton
     },
     methods: {
 
