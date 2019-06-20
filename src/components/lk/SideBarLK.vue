@@ -65,7 +65,28 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
+    data() {
+        return {
+            errors: [],
+            isActiveNav: {
+                completed: null
+            },
+
+        }
+    },
     props: ['navTitle1','navLink1','navTitle2','navLink2'],
+    created() {
+        /*
+         * ANCHOR: установка меню исходя из текущего положения (по активным займам)
+         */
+        axios.get(`https://jsonplaceholder.typicode.com/todos/1`)
+            .then(response => {
+                this.isActiveNav = response.data
+            }).catch(e => {
+            this.errors.push(e)
+        })
+    },
 }
 </script>
