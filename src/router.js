@@ -125,5 +125,15 @@ export default new Router({
         /**************
          * Личный кабинет
          ***************/
+        {
+            path: '/lk/apply-loan',
+            name: 'apply-loan',
+            props: true,
+            meta: {
+                LkLayout: true,
+            },
+            component: () =>
+                import ('./views/lk/Apply-loan.vue')
+        },
     ]
 })
