@@ -148,5 +148,20 @@ export default new Router({
             component: () =>
                 import ('./views/lk/docs/Index.vue')
         },
+        //Активные займы
+        {
+            path: '/lk/active-loans',
+            name: 'active-loans',
+            props: true,
+            meta: {
+                //activeLink: 'Внести платёж',
+                LkLayout: true,
+            },
+            component: () =>
+                import ('./views/lk/active-loans/Index.vue')
+        },
     ]
 })
+/*
+* TODO: Разобрать с активность текущего раздела
+ */

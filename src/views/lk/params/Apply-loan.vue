@@ -1,10 +1,6 @@
 <template>
 <div class="pltz-layout">
-    <SideBarLK
-            navTitle1="Внести платёж"
-            navLink1="#"
-            navTitle2="Получить деньги"
-            navLink2="params/apply-loan" />
+    <SideBarLK />
     <div class="pltz-layout__content">
 
         <h1 class="o-content-title">Оформить заём</h1>

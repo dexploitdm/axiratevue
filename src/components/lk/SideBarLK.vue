@@ -4,20 +4,22 @@
         <nav class="c-site-menu">
             <ul class="c-site-menu__list">
                 <li class="c-site-menu__item">
-                    <router-link  
-                    class="c-site-menu__link" 
-                     v-bind:class="{'is-active': $route.meta.activeLink === navTitle1}"
-                    :to="navLink1"
-                     exact
-                     >{{navTitle1}}</router-link>
+                    <router-link v-if="this.isOverdueLoans === true"
+                            class="c-site-menu__link" to="/lk/active-loans" exact>Внести платёж</router-link>
+                    <router-link v-if="this.isOverdueLoans === false"
+                                 class="c-site-menu__link" to="/lk/active-loans" exact>Погасить</router-link>
                 </li>
                 <li class="c-site-menu__item">
-                    <router-link  
-                        class="c-site-menu__link" 
-                         v-bind:class="{'is-active': $route.meta.activeLink === navTitle2}"
-                        :to="navLink2"
-                        exact
-                     >{{navTitle2}}</router-link>
+
+                    <!--Если активных займов нет-->
+                    <router-link  v-if="this.issetActiveLoans === false"
+                                  class="c-site-menu__link"
+                                  to="/lk/params/apply-loan" exact>Получить деньги</router-link>
+                    <router-link  v-if="this.issetActiveLoans === true"
+                                  class="c-site-menu__link"
+                                  to="/lk/params/apply-loan" exact>Оплатить</router-link>
+
+
                 </li>
             </ul>
         </nav>
@@ -71,15 +73,20 @@ export default {
         return {
             errors: [],
             isActiveNav: {
-                completed: null
+                completed: null,
+
             },
+            issetActiveLoans: true,
+            isOverdueLoans: true
+
 
         }
     },
-    props: ['navTitle1','navLink1','navTitle2','navLink2'],
+    //props: ['navTitle1','navLink1','navTitle2','navLink2'],
     created() {
         /*
          * ANCHOR: установка меню исходя из текущего положения (по активным займам)
+         * Получение данных текущего пользователя
          */
         axios.get(`https://jsonplaceholder.typicode.com/todos/1`)
             .then(response => {
