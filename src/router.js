@@ -79,5 +79,38 @@ export default new Router({
             component: () =>
                 import ('./views/auth/register/Anket-data.vue')
         },
+        {
+            path: '/register/reg-address',
+            name: 'reg-address',
+            props: true,
+            meta: {
+                authLayout: true,
+                //middleware: stepOne,
+            },
+            component: () =>
+                import ('./views/auth/register/Reg-address.vue')
+        },
+        {
+            path: '/register/check-data',
+            name: 'check-data',
+            props: true,
+            meta: {
+                authLayout: true,
+                //middleware: stepOne,
+            },
+            component: () =>
+                import ('./views/auth/register/Check-data.vue')
+        },
+        {
+            path: '/register/data-fail',
+            name: 'data-fail',
+            props: true,
+            meta: {
+                authLayout: true,
+                //middleware: stepOne,
+            },
+            component: () =>
+                import ('./views/auth/register/Data-fail.vue')
+        },
     ]
 })

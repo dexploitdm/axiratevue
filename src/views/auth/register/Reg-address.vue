@@ -3,7 +3,7 @@
 
 
   <div>
-    <app-sidebar
+    <SideBar
       title="Регистрация"
       isListStep="2"
       titleDesc="Пожалуй, самый высокий процент одобрения!"
@@ -229,10 +229,10 @@
 </template>
 
 <script>
-import AppSidebar from '~/components/auth/SidebarAuth'
+import SideBar from '@/components/auth/SideBar'
 export default {
     components: {
-      AppSidebar
+      SideBar
     },
     mounted() {
       let recaptchaScript = document.createElement('script')

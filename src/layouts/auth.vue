@@ -11,6 +11,9 @@
 
                 <router-link active-class="is-active" to="/register/passport-data" exact>Паспорт дан.</router-link>
                 <router-link active-class="is-active" to="/register/reg-address" exact>Адрес регистрации</router-link>
+                <router-link active-class="is-active" to="/register/anket-data" exact>Подтверждение анкетных данных</router-link>
+                <router-link active-class="is-active" to="/register/check-data" exact>Проверяем данные</router-link>
+                <router-link active-class="is-active" to="/register/data-fail" exact>Возможно, допущена ошибка</router-link>
               </div>
             </div>
         </div>

@@ -17,7 +17,7 @@
                           <div class="pltz-linear-progress__bar pltz-linear-progress__bar_indeterminate"></div>
                       </div>
                       <div class="c-card__media">
-                          <img src="~/assets/images/im_user_scor.png" alt="Проверяем данные">
+                          <img src="/images/im_user_scor.png" alt="Проверяем данные">
                       </div>
                   </div>
               </div>

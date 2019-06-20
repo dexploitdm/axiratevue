@@ -56,7 +56,7 @@
                                     <div class="pltz-flex__col pltz-flex__col_5">
                                         <div class="c-form-group">
                                             <div class="c-form-captcha">
-                                                <img src="~/assets/images/demo/captcha.png" alt="Captcha" class="c-form-captcha__image"><br />
+                                                <img src="/images/demo/captcha.png" alt="Captcha" class="c-form-captcha__image"><br />
                                                 <a href="#" class="c-form-captcha__link o-link">Получить новый код</a>
                                             </div>
                                         </div>
