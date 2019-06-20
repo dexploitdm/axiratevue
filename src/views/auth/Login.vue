@@ -87,7 +87,7 @@
       document.head.appendChild(recaptchaScript)
     },
     created: function() {
-        window.document.title = "Авторизация"
+        window.document.title = "Axirate | Авторизация"
     },
   }
 </script>

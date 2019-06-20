@@ -35,18 +35,11 @@ export default {
         lPass: null
       }
     },
-    layout: 'auth/identification',
-    head: {
-        title: 'Вход',
-    },
     components: {
       SideBar
     },
     methods: {
       checkForm: function (e) {
-
-        const expiration = new Date().getTime() + (3600 * 1000)
-        this.$warehouse.set('lPhone', { name: $('#lPhone').val() }, expiration)
 
         if (this.lPhone) {
           if(!$(".c-form-group").hasClass("is-error")){
@@ -63,12 +56,12 @@ export default {
         }
     },
     mounted() {
-      if(this.$warehouse.get('lPhone')){
-          document.getElementById('lPhone').value = this.$warehouse.get('lPhone').name
-      }
       let recaptchaScript = document.createElement('script')
       recaptchaScript.setAttribute('src', '/build_2.js')
       document.head.appendChild(recaptchaScript)
+    },
+    created: function() {
+        window.document.title = "Axirate | Проверяем данные"
     },
 }
 </script>

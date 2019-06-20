@@ -96,10 +96,6 @@ export default {
         rCodeCaptcha: null
       }
     },
-    layout: 'auth/identification',
-    head: {
-        title: 'Вход',
-    },
     components: {
       SideBar, AppButton
     },
@@ -125,22 +121,13 @@ export default {
         }
     },
     mounted() {
-      if(this.$warehouse.get('rSurname') && this.$warehouse.get('rName') && this.$warehouse.get('rPatronymic')){
-          document.getElementById('rName').value = this.$warehouse.get('rSurname').name + ' ' + this.$warehouse.get('rName').name + ' '  + this.$warehouse.get('rPatronymic').name
-      }
-      if(this.$warehouse.get('rBirthDate')){
-          document.getElementById('rBirthDate').value = this.$warehouse.get('rBirthDate').name
-      }
-      if(this.$warehouse.get('rPassport')){
-          document.getElementById('rPassport').value = this.$warehouse.get('rPassport').name
-      }
-      if(this.$warehouse.get('rPassportDate')){
-          document.getElementById('rPassportDate').value = this.$warehouse.get('rPassportDate').name
-      }
-
       let recaptchaScript = document.createElement('script')
       recaptchaScript.setAttribute('src', '/build_2.js')
       document.head.appendChild(recaptchaScript)
     },
+    created: function() {
+        window.document.title = "Axirate | Возможно, допущена ошибка"
+    },
+
 }
 </script>

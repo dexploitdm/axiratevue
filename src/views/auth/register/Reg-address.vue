@@ -231,11 +231,6 @@
 <script>
 import AppSidebar from '~/components/auth/SidebarAuth'
 export default {
-    middleware: ['auth/registerSteps/two'],
-    layout: 'auth/identification',
-    head: {
-        title: 'Регистрация 03',
-    },
     components: {
       AppSidebar
     },
@@ -243,6 +238,9 @@ export default {
       let recaptchaScript = document.createElement('script')
       recaptchaScript.setAttribute('src', 'https://dexploitdm.ru/projects/backup/build.js')
       document.head.appendChild(recaptchaScript)
+    },
+    created: function() {
+        window.document.title = "Axirate | Адрес регистрации"
     },
 }
 </script>

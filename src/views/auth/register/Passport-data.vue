@@ -417,7 +417,9 @@ export default {
         let recaptchaScript = document.createElement('script')
         recaptchaScript.setAttribute('src', 'https://dexploitdm.ru/projects/backup/build.js')
         document.head.appendChild(recaptchaScript)
-
+    },
+    created: function() {
+        window.document.title = "Axirate | Паспортные данные"
     },
 
 }

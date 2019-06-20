@@ -194,19 +194,16 @@ export default {
         errors: [],
       }
     },
-    layout: 'auth/identification',
-    head: {
-        title: 'Регистрация 01',
-    },
     components: {
         SideBar, AppButton
     },
      mounted() {
-
         let recaptchaScript = document.createElement('script')
         recaptchaScript.setAttribute('src', '/builds.js')
         document.head.appendChild(recaptchaScript)
-
+    },
+    created: function() {
+        window.document.title = "Axirate | Подтверждение анкетных данных"
     },
 }
 </script>

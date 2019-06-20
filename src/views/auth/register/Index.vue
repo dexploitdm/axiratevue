@@ -139,7 +139,7 @@ import $ from 'jquery';
       SideBar
     },
     created: function() {
-        window.document.title = "Регистрация - контактные данные"
+        window.document.title = "Axirate | Регистрация - контактные данные"
     },
     methods: {
 
