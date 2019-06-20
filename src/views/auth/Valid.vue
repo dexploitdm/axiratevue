@@ -99,7 +99,7 @@
         mask="+7(999)9999999" 
         placeholder="_"
         :raw="false"
-        :options="options"> 
+      > 
     </vue-mask>
 
             </div>
