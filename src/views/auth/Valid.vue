@@ -1,161 +1,109 @@
 <template>
-  <div class="login">
-      <SideBar 
-            title="Авторизация"
-            isListStep=""
-            titleDesc="Мы рады видеть вас снова"
-            descSideBar='Для входа в личный кабинет используйте номер телефона,
+<div class="login">
+    <SideBar title="Авторизация" isListStep="" titleDesc="Мы рады видеть вас снова" descSideBar='Для входа в личный кабинет используйте номер телефона,
             указанный при регистрации. <br><br>
             Если вы забыли или не создавали пароль,
-            воспользуйтесь ссылкой "Не помню пароль"'
-            imgBanner=""
-            LoginButton=""
-            backButton=""
-            regButton="Зарегистрироваться"
-      />
-      <!-- content -->
-        
-        <div class="pltz-wrapper pltz-wrapper_t1">
+            воспользуйтесь ссылкой "Не помню пароль"' imgBanner="" LoginButton="" backButton="" regButton="Зарегистрироваться" />
+    <!-- content -->
 
-            <div class="pltz-grid">
+    <div class="pltz-wrapper pltz-wrapper_t1">
 
+        <div class="pltz-grid">
 
-                <div class="c-card c-card_t1">
+            <div class="c-card c-card_t1">
 
-                    <div class="c-card__part">
-                         <form action="#" class="c-form" @submit.prevent="checkForm">
-                            <h1 class="o-content-h1 o-content-h1_feat">Авторизация</h1>
+                <div class="c-card__part">
+                    <form action="#" class="c-form" @submit.prevent="checkForm">
+                        <h1 class="o-content-h1 o-content-h1_feat">Авторизация</h1>
 
-                            <fieldset class="c-form-fieldset">
+                        <fieldset class="c-form-fieldset">
 
-                                
-
-                                <div class="c-form-group" :class="{
-                                    'is-error': submitted && $v.login.lPhone.$error ,
-                                    'is-empty': !this.login.lPhone
-                                    }">
+                            <div class="c-form-group">
                                 <input
                                   type="tel"
-                                  v-model="login.lPhone"
+                                  v-model="lPhone"
                                   id="lPhone"
-                                  name="lPhone" class="o-pltz-text-input js-text-input"  />
+                                  name="lPhone" class="o-pltz-text-input js-text-input js-input-phone"/>
                                 <label class="control-label" for="lPhone">Мобильный телефон</label>
-                                <div v-if="submitted && !$v.login.lPhone.required" class="c-form-group__message">Заполните полностью</div>
+                                <div class="c-form-group__message">Заполните полностью</div>
                             </div>
 
-                            <div class="c-form-group"
-                                :class="{
-                                    'is-error': submitted && $v.login.password.$error ,
-                                    'is-empty': !this.login.password
-                                }">
+                            <div class="c-form-group">
 
                                 <input type="password"
-                                  v-model="login.password"
+                                  v-model="password"
                                   id="password"
                                   name="password"
                                   class="o-pltz-text-input js-text-input"
-                                  :class="{ 'is-invalid': submitted && $v.login.password.$error }"
                                 />
-                                  <label class="control-label" for="lPass">Введите пароль</label>
-                                <div v-if="submitted && $v.login.password.$error">
-                                    <div class="c-form-group__message" v-if="!$v.login.password.required">Пароль обязателен</div>
-                                    <div class="c-form-group__message" v-if="!$v.login.password.minLength">Пароль должен содержать больше 6 символов</div>
-                                    <span class="c-form-group__clear js-field-clear"
-                                        v-on:click="$v.login.password.$error == true"
-                                    >X</span>
-                                </div>
+                                <label class="control-label" for="lPass">Введите пароль</label>
+                                <div class="c-form-group__message">Пароль обязателен</div>
+                                <span class="c-form-group__clear js-field-clear">X</span>
+                           
                             </div>
 
-    
-                                <div class="pltz-flex pltz-flex_p12">
-                                    <div class="pltz-flex__col pltz-flex__col_small5 c-form__part c-form__part_right" style="margin-top: -24px; max-width: 100%; flex: 0 0 100%; margin-bottom: 28px;">
-                                        <a href="#" class="o-link">Не помню пароль</a>
-                                    </div>
-                                </div>
-
-
-
-
-                    
-
-                            </fieldset>
                             <div class="pltz-flex pltz-flex_p12">
-                                <div class="pltz-flex__col pltz-flex__col_small6">
-                                    Еще не зарегистрированы?<br />
-                                    <router-link to="register" class="o-link">Создать аккаунт</router-link>
-                                </div>
-                                <div class="pltz-flex__col pltz-flex__col_small6">
-                                    <button type="submit" class="o-pltz-btn o-pltz-btn_i o-pltz-btn_i-full">Войти</button>
+                                <div class="pltz-flex__col pltz-flex__col_small5 c-form__part c-form__part_right" style="margin-top: -24px; max-width: 100%; flex: 0 0 100%; margin-bottom: 28px;">
+                                    <a href="#" class="o-link">Не помню пароль</a>
                                 </div>
                             </div>
-                        </form>
 
-                    </div>
+                        </fieldset>
+                        <div class="pltz-flex pltz-flex_p12">
+                            <div class="pltz-flex__col pltz-flex__col_small6">
+                                Еще не зарегистрированы?<br />
+                                <router-link to="register" class="o-link">Создать аккаунт</router-link>
+                            </div>
+                            <div class="pltz-flex__col pltz-flex__col_small6">
+                                <button type="submit" class="o-pltz-btn o-pltz-btn_i o-pltz-btn_i-full">Войти</button>
+                            </div>
+                        </div>
+                    </form>
+
                 </div>
-
             </div>
 
         </div>
 
-  </div>
+    </div>
 
+</div>
 </template>
+
 <script>
-  import SideBar from '@/components/auth/SideBar'
-  import {
-    required,
-    minLength
-} from "vuelidate/lib/validators";
-  export default {
+import SideBar from '@/components/auth/SideBar'
+export default {
     components: {
-      SideBar
+        SideBar
     },
     data() {
         return {
-            login: {
 
-                lPhone: "",
-                password: "",
+            lPhone: "",
+            password: "",
 
-            },
-            submitted: false
-        }
-    },
-    validations: {
-        login: {
-            lPhone: {
-                required,
-            },
-            password: {
-                required,
-                minLength: minLength(6)
-            },
         }
     },
     methods: {
-         checkForm: function (e) {
-            this.submitted = true;
-            console.log(this.$v.login.password.$error)
-            // stop here if form is invalid
-            this.$v.$touch();
-            if (this.$v.$invalid) {
-                console.warn('не валидно')
-                return;
-            }
+        checkForm: function (e) {
+            
+           
+     
 
-            console.info('отправка')
+
+            //console.info('отправка')
 
             this.errors = [];
             e.preventDefault();
         }
     },
     mounted() {
-    //   let recaptchaScript = document.createElement('script')
-    //   recaptchaScript.setAttribute('src', 'https://dexploitdm.ru/projects/backup/build.js')
-    //   document.head.appendChild(recaptchaScript)
+        let recaptchaScript = document.createElement('script')
+        recaptchaScript.setAttribute('src', 'js/builds.js')
+        document.head.appendChild(recaptchaScript)
     },
-    created: function() {
+    created: function () {
         window.document.title = "Авторизация"
     },
-  }
+}
 </script>

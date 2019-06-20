@@ -68,5 +68,16 @@ export default new Router({
             component: () =>
                 import ('./views/auth/register/Passport-data.vue')
         },
+        {
+            path: '/register/anket-data',
+            name: 'anket-data',
+            props: true,
+            meta: {
+                authLayout: true,
+                middleware: stepOne,
+            },
+            component: () =>
+                import ('./views/auth/register/Anket-data.vue')
+        },
     ]
 })
