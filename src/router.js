@@ -47,6 +47,9 @@ export default new Router({
             component: () =>
                 import ('./views/auth/Valid.vue')
         },
+        /**************
+         * Регистрация
+         ***************/
         {
             path: '/register',
             name: 'register',
@@ -85,7 +88,6 @@ export default new Router({
             props: true,
             meta: {
                 authLayout: true,
-                //middleware: stepOne,
             },
             component: () =>
                 import ('./views/auth/register/Reg-address.vue')
@@ -96,7 +98,6 @@ export default new Router({
             props: true,
             meta: {
                 authLayout: true,
-                //middleware: stepOne,
             },
             component: () =>
                 import ('./views/auth/register/Check-data.vue')
@@ -107,10 +108,22 @@ export default new Router({
             props: true,
             meta: {
                 authLayout: true,
-                //middleware: stepOne,
             },
             component: () =>
                 import ('./views/auth/register/Data-fail.vue')
         },
+        {
+            path: '/register/fail-docs',
+            name: 'fail-docs',
+            props: true,
+            meta: {
+                authLayout: true,
+            },
+            component: () =>
+                import ('./views/auth/register/Fail-docs.vue')
+        },
+        /**************
+         * Личный кабинет
+         ***************/
     ]
 })
