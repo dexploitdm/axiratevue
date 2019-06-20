@@ -126,14 +126,27 @@ export default new Router({
          * Личный кабинет
          ***************/
         {
-            path: '/lk/apply-loan',
+            path: '/lk/params/apply-loan',
             name: 'apply-loan',
             props: true,
             meta: {
+                activeLink: 'Получить деньги',
                 LkLayout: true,
             },
             component: () =>
-                import ('./views/lk/Apply-loan.vue')
+                import ('./views/lk/params/Apply-loan.vue')
+        },
+        //Документы
+        {
+            path: '/lk/docs',
+            name: 'docs-index',
+            props: true,
+            meta: {
+                activeLink: 'Мои документы',
+                LkLayout: true,
+            },
+            component: () =>
+                import ('./views/lk/docs/Index.vue')
         },
     ]
 })

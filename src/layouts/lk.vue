@@ -5,8 +5,8 @@
           menu
             <div class="navigate-tools">
                 <div class="fixed-menu">
-                <p>identification layout</p>
-                <router-link active-class="is-active" to="/login" exact>Вход</router-link>
+                <p>LK layout</p>
+                <router-link active-class="is-active" to="/lk/params/apply-loan" exact>Оформить заём</router-link>
               </div>
             </div>
         </div>
@@ -327,6 +327,7 @@
 <script>
 import '../assets/css/vendors_registration.css'
 import '../assets/css/registration.css'
+import '../assets/css/lk.css'
 export default { 
     
 }
@@ -381,6 +382,9 @@ export default {
   .navAll.active .navigate-tools {
     display: block;
   }
+  a.router-link-active, li.router-link-active>a {
+    color: red;
+}
 </style>
 
 

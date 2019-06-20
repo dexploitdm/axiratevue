@@ -6,15 +6,15 @@
             <div class="navigate-tools">
                 <div class="fixed-menu">
                 <p>identification layout</p>
-                <router-link active-class="is-active" to="/login" exact>Вход</router-link>
-                <router-link active-class="is-active" to="/register" exact>Регистрация</router-link>
+                <router-link to="/login" exact>Вход</router-link>
+                <router-link to="/register" exact>Регистрация</router-link>
 
-                <router-link active-class="is-active" to="/register/passport-data" exact>Паспорт дан.</router-link>
-                <router-link active-class="is-active" to="/register/reg-address" exact>Адрес регистрации</router-link>
-                <router-link active-class="is-active" to="/register/anket-data" exact>Подтверждение анкетных данных</router-link>
-                <router-link active-class="is-active" to="/register/check-data" exact>Проверяем данные</router-link>
-                <router-link active-class="is-active" to="/register/data-fail" exact>Возможно, допущена ошибка</router-link>
-                 <router-link active-class="is-active" to="/register/fail-docs" exact>Документ не прошёл проверку</router-link>
+                <router-link to="/register/passport-data" exact>Паспорт дан.</router-link>
+                <router-link to="/register/reg-address" exact>Адрес регистрации</router-link>
+                <router-link to="/register/anket-data" exact>Подтверждение анкетных данных</router-link>
+                <router-link to="/register/check-data" exact>Проверяем данные</router-link>
+                <router-link to="/register/data-fail" exact>Возможно, допущена ошибка</router-link>
+                <router-link to="/register/fail-docs" exact>Документ не прошёл проверку</router-link>
               </div>
             </div>
         </div>
@@ -160,6 +160,9 @@ export default {
   .navAll.active .navigate-tools {
     display: block;
   }
+    a.router-link-active, li.router-link-active>a {
+        color: red !important;
+    }
 </style>
 
 
