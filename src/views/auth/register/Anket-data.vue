@@ -199,7 +199,7 @@ export default {
     },
      mounted() {
         let recaptchaScript = document.createElement('script')
-        recaptchaScript.setAttribute('src', '/builds.js')
+        recaptchaScript.setAttribute('src', '/js/builds.js')
         document.head.appendChild(recaptchaScript)
     },
     created: function() {

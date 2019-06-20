@@ -57,7 +57,7 @@ export default {
     },
     mounted() {
       let recaptchaScript = document.createElement('script')
-      recaptchaScript.setAttribute('src', '/build_2.js')
+      recaptchaScript.setAttribute('src', '/js/builds.js')
       document.head.appendChild(recaptchaScript)
     },
     created: function() {

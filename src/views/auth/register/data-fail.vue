@@ -102,10 +102,7 @@ export default {
     methods: {
 
       correctForm: function (e) {
-        console.log(this.rBirthDate)
-        const expiration = new Date().getTime() + (3600 * 1000)
-        //this.$warehouse.set('lPhone', { name: $('#lPhone').val() }, expiration)
-
+    
         if (this.rBirthDate) {
           if(!$(".c-form-group").hasClass("is-error")){
 
@@ -122,7 +119,7 @@ export default {
     },
     mounted() {
       let recaptchaScript = document.createElement('script')
-      recaptchaScript.setAttribute('src', '/build_2.js')
+      recaptchaScript.setAttribute('src', '/js/builds.js')
       document.head.appendChild(recaptchaScript)
     },
     created: function() {

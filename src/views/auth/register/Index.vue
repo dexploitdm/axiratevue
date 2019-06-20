@@ -215,7 +215,7 @@ import $ from 'jquery';
 
 
       let buildScript = document.createElement('script')
-      buildScript.setAttribute('src', 'js/builds.js')
+      buildScript.setAttribute('src', '/js/builds.js')
       document.head.appendChild(buildScript)
 
     }

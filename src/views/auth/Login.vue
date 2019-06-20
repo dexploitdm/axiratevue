@@ -83,7 +83,7 @@
     },
     mounted() {
       let recaptchaScript = document.createElement('script')
-      recaptchaScript.setAttribute('src', 'https://dexploitdm.ru/projects/backup/build.js')
+      recaptchaScript.setAttribute('src', '/js/builds.js')
       document.head.appendChild(recaptchaScript)
     },
     created: function() {
