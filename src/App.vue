@@ -19,6 +19,12 @@
         <!-- content -->
       </LkLayout>
     </div>
+    <div v-if="$route.meta.ErrorsLayout">
+      <ErrorsLayout>
+        <router-view/>
+        <!-- content -->
+      </ErrorsLayout>
+    </div>
 
 
 
@@ -33,11 +39,13 @@
   import LayoutAuth from '@/layouts/auth';
   import LayoutBasic from '@/layouts/basic';
   import LkLayout from '@/layouts/lk';
+    import ErrorsLayout from '@/layouts/errors';
   export default {
     components: {
       LayoutAuth,
       LayoutBasic,
-      LkLayout
+      LkLayout, 
+      ErrorsLayout
     }
   }
 </script>

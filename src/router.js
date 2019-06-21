@@ -9,6 +9,19 @@ Vue.use(Router)
 export default new Router({
         mode: 'history',
         routes: [{
+                path: '/404',
+                name: '404',
+                meta: {
+                    ErrorsLayout: true,
+                },
+                component: () =>
+                    import ('./views/404.vue')
+            },
+            {
+                path: '*',
+                redirect: '/404'
+            },
+            {
                 path: '/',
                 name: 'home',
                 component: Home,
