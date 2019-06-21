@@ -138,6 +138,7 @@ export default new Router({
             /**************
              * Личный кабинет
              ***************/
+            //Получить деньги
             {
                 path: '/lk/getting-money/apply-loan',
                 name: 'apply-loan',
@@ -148,6 +149,17 @@ export default new Router({
                 },
                 component: () =>
                     import ('./views/lk/getting-money/Apply-loan.vue')
+            },
+            {
+                path: '/lk/getting-money/methods',
+                name: 'apply-methods',
+                props: true,
+                meta: {
+                    activeLink: 'Получить деньги',
+                    LkLayout: true,
+                },
+                component: () =>
+                    import ('./views/lk/getting-money/Methods.vue')
             },
             //Документы
             {
@@ -173,6 +185,24 @@ export default new Router({
                 component: () =>
                     import ('./views/lk/active-loans/Index.vue')
             },
+
+
+
+
+            //Разные страницы
+            {
+                path: '/lk/pages/agreement',
+                name: 'agreement',
+                props: true,
+                meta: {
+                    //activeLink: 'Внести платёж',
+                    LkLayout: true,
+                },
+                component: () =>
+                    import ('./views/lk/pages/Agreement.vue')
+            },
+            //Redirects
+            // { path: '/lk/active-loans', redirect: { name: 'docs-index' } }
         ]
     })
     /*
