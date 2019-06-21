@@ -3,21 +3,28 @@
 
         <nav class="c-site-menu">
             <ul class="c-site-menu__list">
+
+
                 <li class="c-site-menu__item">
                     <router-link v-if="this.isOverdueLoans === true"
-                            class="c-site-menu__link" to="/lk/active-loans" exact>Внести платёж</router-link>
+                        v-bind:class="{'is-active': isActive}"
+                        class="c-site-menu__link" to="/lk/active-loans" exact>Внести платёж</router-link>
                     <router-link v-if="this.isOverdueLoans === false"
-                                 class="c-site-menu__link" to="/lk/active-loans" exact>Погасить</router-link>
+                        v-bind:class="{'is-active': isActive}"
+                        class="c-site-menu__link" to="/lk/active-loans" exact>Погасить</router-link>
                 </li>
+
                 <li class="c-site-menu__item">
 
                     <!--Если активных займов нет-->
                     <router-link  v-if="this.issetActiveLoans === false"
-                                  class="c-site-menu__link"
-                                  to="/lk/params/apply-loan" exact>Получить деньги</router-link>
+                        class="c-site-menu__link"
+                        v-bind:class="{'is-active': isActive2}"
+                        to="/lk/params/apply-loan" exact>Получить деньги</router-link>
                     <router-link  v-if="this.issetActiveLoans === true"
-                                  class="c-site-menu__link"
-                                  to="/lk/params/apply-loan" exact>Оплатить</router-link>
+                        v-bind:class="{'is-active': isActive2}"
+                        class="c-site-menu__link"
+                        to="/lk/params/apply-loan" exact>Оплатить</router-link>
 
 
                 </li>
@@ -76,13 +83,11 @@ export default {
                 completed: null,
 
             },
-            issetActiveLoans: true,
-            isOverdueLoans: true
-
-
+            issetActiveLoans: false,
+            isOverdueLoans: false
         }
     },
-    //props: ['navTitle1','navLink1','navTitle2','navLink2'],
+    props: ['isActive','isActive2'],
     created() {
         /*
          * ANCHOR: установка меню исходя из текущего положения (по активным займам)

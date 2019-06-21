@@ -1,6 +1,9 @@
 <template>
 <div class="pltz-layout">
-    <SideBarLK />
+    <SideBarLK 
+        isActive=""
+        isActive2="is-active"
+    />
     <div class="pltz-layout__content">
 
         <h1 class="o-content-title">Оформить заём</h1>
@@ -599,7 +602,7 @@ export default {
         return {
             errors: [],
             isActiveLoans: {
-                completed: null
+                completed: true
             },
 
         }
@@ -617,12 +620,12 @@ export default {
         /*
          * TODO: Вытягиваем у пользователя инфу о активном заеме
          */
-        axios.get(`https://jsonplaceholder.typicode.com/todos/1`)
-            .then(response => {
-                this.isActiveLoans = response.data
-            }).catch(e => {
-                this.errors.push(e)
-            })
+        // axios.get(`https://jsonplaceholder.typicode.com/todos/1`)
+        //     .then(response => {
+        //         this.isActiveLoans = response.data
+        //     }).catch(e => {
+        //         this.errors.push(e)
+        //     })
     },
     beforeCreate: function () {
        // console.log(this.appName);

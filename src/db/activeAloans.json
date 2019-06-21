@@ -1,0 +1,27 @@
+[{
+        "title": "Заём «До зарплаты»",
+        "id": 9483111,
+        "balance": "47 000",
+        "currentDolg": "47 000",
+        "isActiveloans": true,
+        "periodLoans": [
+            { "title": "Сегодня", "part": "passed" },
+            { "title": "Осталось 14 дней", "part": "" }
+        ]
+    },
+    {
+        "title": "Заём «Долгий»",
+        "id": 9483112,
+        "balance": "47 000",
+        "currentDolg": "47 000",
+
+        "isActiveloans": true,
+        "periodLoans": [
+            { "title": "24.09.2016", "part": "passed" },
+            { "title": "04.10.2016", "part": "passed" },
+            { "title": "Просрочено 20 дней", "part": "expired" },
+            { "title": "Просрочено 10 дней", "part": "expired" },
+            { "title": "24.10.2016", "part": "" }
+        ]
+    }
+]
