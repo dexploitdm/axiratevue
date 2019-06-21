@@ -6,7 +6,7 @@
             <div class="navigate-tools">
                 <div class="fixed-menu">
                 <p>LK layout</p>
-                <router-link active-class="is-active" to="/lk/params/apply-loan" exact>Оформить заём</router-link>
+                <router-link active-class="is-active" to="/lk/getting-money/apply-loan" exact>Оформить заём</router-link>
               </div>
             </div>
         </div>

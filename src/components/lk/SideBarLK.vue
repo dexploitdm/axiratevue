@@ -20,11 +20,11 @@
                     <router-link  v-if="this.issetActiveLoans === false"
                         class="c-site-menu__link"
                         v-bind:class="{'is-active': isActive2}"
-                        to="/lk/params/apply-loan" exact>Получить деньги</router-link>
+                        to="/lk/getting-money/apply-loan" exact>Получить деньги</router-link>
                     <router-link  v-if="this.issetActiveLoans === true"
                         v-bind:class="{'is-active': isActive2}"
                         class="c-site-menu__link"
-                        to="/lk/params/apply-loan" exact>Оплатить</router-link>
+                        to="/lk/getting-money/apply-loan" exact>Оплатить</router-link>
 
 
                 </li>
