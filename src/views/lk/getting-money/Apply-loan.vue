@@ -13,39 +13,15 @@
             <div class="pltz-content pltz-content_steps">
 
                 <div class="pltz-content__block js-tabs-scroll">
-                    <div class="c-tabs">
-                        <div class="c-tabs__nav-item c-tabs__nav-item_active">
-                            <div class="c-tabs__num">
-                                1
-                            </div>
-                            <div class="c-tabs__title">
-                                Параметры <br class="c-tabs__br">займа
-                                    </div>
-                            </div>
 
-                            <div class="c-tabs__nav-item">
-                                <div class="c-tabs__num">
-                                    2
-                                </div>
-                                <div class="c-tabs__title">
-                                    Способ <br class="c-tabs__br">получения
-                                    </div>
-                                </div>
-
-                                <div class="c-tabs__nav-item">
-                                    <div class="c-tabs__num">
-                                        3
-                                    </div>
-                                    <div class="c-tabs__title">
-                                        Подписание <br class="c-tabs__br">документов
-                                    </div>
-                                    </div>
-                                </div>
+                                <TabsLoans />
+                    
                             </div>
                         </div>
                     </div>
+                    
 
-                    <form v-if="isActiveLoans.completed == true" action="" class="c-form js-loan-calculator">
+                    <form v-if="isActiveLoans.completed == true" class="c-form js-loan-calculator" @submit.prevent="checkForm">
                         <div class="c-card-cabinet c-card-cabinet_sticky">
 
                             <div class="pltz-content pltz-content_t1">
@@ -61,14 +37,14 @@
                                                     <input type="hidden" class="js-sum-value" value="3000">
                                                     <div class="c-calc__slider-part c-calc__slider-part_input">
                                                         <input type="tel" name="loanSum" id="loanSum"
-                                                class="c-calc__input js-sum-input"
-                                                value="3000"
-                                                data-min="1000"
-                                                data-max="70000"
-                                                data-start="3000"
-                                                data-step="1000"
-                                                data-type="loan-sum" />
-                                            </div>
+                                                            class="c-calc__input js-sum-input"
+                                                            value="3000"
+                                                            data-min="1000"
+                                                            data-max="70000"
+                                                            data-start="3000"
+                                                            data-step="1000"
+                                                            data-type="loan-sum" />
+                                                        </div>
                                                         <div class="c-calc__slider-part c-calc__slider-part_info">
                                                             рублей
                                                         </div>
@@ -88,13 +64,13 @@
                                                         <div class="c-calc__slider-part c-calc__slider-part_input">
                                                             <div id="valweeks"></div>
                                                             <input type="tel" name="loanPeriod" id="loanPeriod" class="c-calc__input js-period-input"
-                                                value="10"
-                                                data-min=""
-                                                data-max=""
-                                                data-start="10"
-                                                data-step="1"
-                                                data-type="loan-period" />
-                                            </div>
+                                                                value="10"
+                                                                data-min=""
+                                                                data-max=""
+                                                                data-start="10"
+                                                                data-step="1"
+                                                                data-type="loan-period" />
+                                                            </div>
                                                             <div class="c-calc__slider-part c-calc__slider-part_info">
                                                                 дней
                                                             </div>
@@ -251,16 +227,23 @@
                                             <div class="pltz-flex pltz-flex_p20">
                                                 <div class="pltz-flex__col pltz-flex__col_small6">
                                                     <div class="c-form-group c-form-group_checkbox c-form-group_t1" style="margin: 13px 0 0 0;">
-                                                        <input class="o-pltz-checkbox" id="rAgree" value="1" name="rAgree" type="checkbox" data-required="required">
+                                                        <input class="o-pltz-checkbox" 
+                                                        id="rAgree" 
+                                                        value="1"
+                                                        name="rAgree" 
+                                                        type="checkbox" 
+                                                        @click="isAgree = !isAgree"
+                                                        data-required="required">
                                                         <label class="control-label" for="rAgree">
-                                                Я согласен и ознакомлен <a href="lk_01-08.php" class="control-label__link" target="_blank">со следующим</a>
+                                                Я согласен и ознакомлен 
+                                                <router-link to="/lk/pages/agreement" class="control-label__link" target="_blank">со следующим</router-link>
                                             </label>
                                                         <div class="c-form-group__message">Для продолжения регистрации в сервисе вы должны быть согласны с условиями оферты</div>
                                                     </div>
                                                 </div>
                                                 <div class="pltz-flex__col pltz-flex__col_small6">
                                                     <div class="c-calc-btn">
-                                                        <button type="submit" class="o-pltz-btn o-pltz-btn_i-full" id="rAgreeButton" disabled>Продолжить</button>
+                                                        <button type="submit" class="o-pltz-btn o-pltz-btn_i-full" id="rAgreeButton" :disabled="isAgree">Продолжить</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -594,6 +577,8 @@
 </template>
 
 <script>
+import $ from 'jquery'
+import TabsLoans from '@/components/lk/TabsLoans'
 import SideBarLK from '@/components/lk/SideBarLK'
 import axios from 'axios';
 
@@ -604,11 +589,31 @@ export default {
             isActiveLoans: {
                 completed: true
             },
-
+            isAgree: true,
         }
     },
     components: {
-        SideBarLK
+        SideBarLK, TabsLoans
+    },
+    methods: {
+
+        checkForm: function (e) {
+                    
+            console.log('отправка')
+            console.warn( $('#loanSum').val())
+            console.info( $('#loanPeriod').val())
+                   
+            //this.$store.dispatch('register/stepOne')
+            this.$router.push('/lk/getting-money/methods')
+               
+
+            
+
+
+            this.errors = [];
+
+            e.preventDefault();
+        }
     },
     mounted() {
         let recaptchaScript = document.createElement('script');

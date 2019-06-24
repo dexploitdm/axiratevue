@@ -189,6 +189,11 @@ export default new Router({
 
 
 
+
+
+
+
+
             //Разные страницы
             {
                 path: '/lk/pages/agreement',

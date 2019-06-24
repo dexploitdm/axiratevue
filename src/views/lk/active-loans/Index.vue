@@ -705,7 +705,6 @@
 
                 </div>
 
-
                 <div class="c-card-cabinet c-card-cabinet_t1 js-loan-active-block">
 
                     <div class="pltz-content">
