@@ -5,8 +5,17 @@
           menu
             <div class="navigate-tools">
                 <div class="fixed-menu">
-                <p>LK layout</p>
-                <router-link active-class="is-active" to="/lk/getting-money/apply-loan" exact>Оформить заём</router-link>
+                    <p>LK layout</p>
+
+                    <router-link  to="/lk/getting-money/apply-loan" exact>Оформить заём</router-link>
+                    <router-link  to="/lk/getting-money/methods" exact>Способ получения</router-link>
+
+
+                    <router-link  to="/lk/active-loans" exact>Активные займ</router-link>
+
+                    <p>разные страницы</p>
+                    <router-link  to="/lk/docs" exact>Документы</router-link>
+                    <router-link  to="/lk/pages/agreement" exact>Соглашение</router-link>
               </div>
             </div>
         </div>
@@ -335,7 +344,7 @@ export default {
 
 
 <style lang="scss" scoped>
- .l-cabinet {
+    .l-cabinet {
         padding: 0;
         position: relative;
         display: flex;
@@ -382,9 +391,9 @@ export default {
   .navAll.active .navigate-tools {
     display: block;
   }
-  a.router-link-active, li.router-link-active>a {
-    color: red;
-}
+    .router-link-exact-active.router-link-active {
+        color: #4caf50;
+    }
 </style>
 
 
