@@ -12,8 +12,10 @@
     "core-js": "^2.6.5",
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
+    "store": "^2.0.12",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
+    "vue-warehouse": "^1.0.2",
     "vuelidate": "^0.7.4",
     "vuex": "^3.1.1"
   },

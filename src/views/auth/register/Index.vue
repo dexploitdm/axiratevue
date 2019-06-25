@@ -144,8 +144,15 @@ import $ from 'jquery';
     methods: {
 
         checkForm: function (e) {
-                    
-            console.log('отправка')
+
+            const expiration = new Date().getTime() + (3600 * 2000);
+            this.$warehouse.set('rSurname', { name: $('#rSurname').val() }, expiration)
+            this.$warehouse.set('rName', { name: $('#rName').val()  }, expiration)
+            this.$warehouse.set('rPatronymic', { name: $('#rPatronymic').val()  }, expiration)
+            this.$warehouse.set('rPhone', { name: $('#rPhone').val()  }, expiration)
+            this.$warehouse.set('rEmail', { name: $('#rEmail').val()  }, expiration)
+
+
             if ($('#rSurname').val() && $('#rName').val() && $('#rPatronymic').val() && $('#rPhone').val() && $('#rEmail').val()) {
 
                if(!$(".c-form-group").hasClass("is-error")){
@@ -174,44 +181,17 @@ import $ from 'jquery';
           /*
           * TODO: Сохранение данных в cookie на некоторое время
           */
-
-            const cookieRName = document.getElementById('rName');
-            const cookieRSurname= document.getElementById('rSurname');
-            const cookieRPatronymic= document.getElementById('rPatronymic');
-            const cookieRPhone= document.getElementById('rPhone');
-            const cookieREmail= document.getElementById('rEmail');
-
-            (function(){
-              //Фамилия
-              if (sessionStorage.rSurname) {  cookieRSurname.value = sessionStorage.rSurname; }
-              cookieRSurname.onchange = function() {
-                  if (this.selectedIndex !== 0) {
-                      sessionStorage.rSurname = this.value;  } };
-              //Имя
-              if (sessionStorage.rName) {  cookieRName.value = sessionStorage.rName; }
-              cookieRName.onchange = function() {
-                  if (this.selectedIndex !== 0) {
-                      sessionStorage.rName = this.value;  } };
-              //Отчество
-              if (sessionStorage.rPatronymic) {  cookieRPatronymic.value = sessionStorage.rPatronymic; }
-              cookieRPatronymic.onchange = function() {
-                  if (this.selectedIndex !== 0) {
-                      sessionStorage.rPatronymic = this.value;  } };
-              //Номер телефона
-
-
-              if (localStorage.rPhone) {  cookieRPhone.value = localStorage.rPhone; }
-              cookieRPhone.onchange = function() {
-                  if (this.selectedIndex !== 0) {
-                      localStorage.rPhone = this.value;  } };
-
-
-              //Email
-              if (sessionStorage.rEmail) {  cookieREmail.value = sessionStorage.rEmail; }
-              cookieREmail.onchange = function() {
-                  if (this.selectedIndex !== 0) {
-                      sessionStorage.rEmail = this.value;  } };
-            })();
+         if(this.$warehouse.get('rSurname')){
+             document.getElementById('rSurname').value = this.$warehouse.get('rSurname').name
+         } if(this.$warehouse.get('rName')){
+             document.getElementById('rName').value = this.$warehouse.get('rName').name
+         } if(this.$warehouse.get('rPatronymic')) {
+             document.getElementById('rPatronymic').value = this.$warehouse.get('rPatronymic').name
+         } if(this.$warehouse.get('rPhone')){
+             document.getElementById('rPhone').value = this.$warehouse.get('rPhone').name
+         } if(this.$warehouse.get('rEmail')){
+             document.getElementById('rEmail').value = this.$warehouse.get('rEmail').name
+         }
 
 
       let buildScript = document.createElement('script')
