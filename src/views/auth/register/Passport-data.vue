@@ -2,18 +2,24 @@
 <div>
     <SideBar title="Регистрация" isListStep="2" titleDesc="Пожалуй, самый высокий процент одобрения!" descSideBar="Мы никого не оставим в беде. Даже если у вас испорчена кредитная история,
       мы сформируем для вас индивидуальное предложение и найдем способ её исправить!" imgBanner="frame-reg-2.png" LoginButton="" backButton="назад" regButton="" />
-    <transition name="fade">
-        <div v-if="showPassBorn" class="c-form-fieldset__white-bg" v-on:click="showPassBorn = !showPassBorn"></div>
-    </transition>
-    <div class="c-form-fieldset__img-popup" id="passport-issued">
-        <img :src="'/images/passport-issued.png'" style="width: 100%" alt="паспорт" />
-    </div>
         <transition name="fade">
-            <div v-if="showPassBorn" class="c-form-fieldset__img-popup" id="passport-born">
-                <img :src="'/images/passport-born.png'" style="width: 100%" alt="паспорт" />
-        </div>
+            <div v-if="showPassBorn" class="c-form-fieldset__white-bg"
+                  v-on:click="showPassBorn = !showPassBorn">
+            </div>
+            <div v-if="showPassIssued" class="c-form-fieldset__white-bg"
+                  v-on:click="showPassIssued = !showPassIssued">
+            </div>
         </transition>
-
+        <transition name="fade">
+            <div v-if="showPassIssued" class="c-form-fieldset__img-popup" id="passport-issued">
+                <img :src="'/images/passport-issued.png'" style="width: 100%" alt="паспорт" />
+            </div>
+        </transition>
+        <transition name="fade">
+            <div  v-if="showPassBorn" class="c-form-fieldset__img-popup" id="passport-born">
+                <img :src="'/images/passport-born.png'" style="width: 100%" alt="паспорт" />
+            </div>
+        </transition>
         <div class="pltz-wrapper pltz-wrapper_t1">
             <div class="pltz-grid">
 
@@ -77,7 +83,7 @@
 
                                 <p class="c-form-fieldset__descr c-form-fieldset__descr--margin0" style="margin: 0;">
                                     <b>
-                                    Заполняйте это поле точно <span class="c-form-fieldset__descr-comment" data-show="passport-issued">как в паспорте</span>, например:<br />
+                                    Заполняйте это поле точно <span class="c-form-fieldset__descr-comment" v-on:click="showPassIssued = !showPassIssued" data-show="passport-issued">как в паспорте</span>, например:<br />
                                 </b>
                                     Отделом УФМС России по Пермскому краю в Свердловском районе города Перми
                                 </p>
@@ -371,10 +377,6 @@
 <script>
 //import '~/assets/js/test2.js'
 import SideBar from '@/components/auth/SideBar'
-import {
-    mapState,
-    mapActions
-} from 'vuex'
 export default {
     beforeCreate() {
        if(this.$store.state.register.stepOneToken == null){
@@ -396,6 +398,7 @@ export default {
             rInn: null,
             rPass: null,
             showPassBorn: false,
+            showPassIssued: false,
             currentPhone: 'test' //localStorage.rPhone
         }
     },
@@ -427,6 +430,9 @@ export default {
 
 <style lang="scss" scoped>
 #passport-born {
+    display: block;
+}
+#passport-issued {
     display: block;
 }
 
