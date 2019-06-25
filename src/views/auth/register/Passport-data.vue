@@ -416,6 +416,11 @@ export default {
         }
     },
     mounted() {
+
+        if(this.$warehouse.get('rPhone')){
+            this.currentPhone = this.$warehouse.get('rPhone').name
+        }
+
         console.log()
         let recaptchaScript = document.createElement('script')
         recaptchaScript.setAttribute('src', '/js/builds.js')
